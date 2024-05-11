@@ -18,9 +18,9 @@ const Post = () => {
       try {
         setLoading(true);
         const [blogResponse, categoryResponse, blogsResponse] = await Promise.all([
-          axios.get(`https://backend-hotel-9bb0a913f779.herokuapp.com/api/blogs?filters[slug][$eq]=${slug}&populate=*`), // Pobieramy po slug
-          axios.get('https://backend-hotel-9bb0a913f779.herokuapp.com/api/categories'),
-          axios.get('https://backend-hotel-9bb0a913f779.herokuapp.com/api/blogs?populate=*'),
+          axios.get(`http://localhost:1337/api/blogs?filters[slug][$eq]=${slug}&populate=*`), // Pobieramy po slug
+          axios.get('http://localhost:1337/api/categories'),
+          axios.get('http://localhost:1337/api/blogs?populate=*'),
         ]);
 
         const blogData = blogResponse.data.data.length > 0 ? blogResponse.data.data[0] : null;

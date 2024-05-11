@@ -24,7 +24,7 @@ const Roompage = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get(`https://backend-hotel-9bb0a913f779.herokuapp.com/api/pokoje?filters[slug]=${slug}&populate=*`);
+          const response = await axios.get(`http://localhost:1337/api/pokoje?filters[slug]=${slug}&populate=*`);
           setPost(response.data.data[0]);
         } catch (error) {
           console.error('Error fetching data: ', error);

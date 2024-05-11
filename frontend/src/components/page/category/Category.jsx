@@ -15,7 +15,7 @@ const Category = () => {
         setLoading(true);
 
         // Pobieramy kategorię i sprawdzamy, czy istnieje
-        const categoryResponse = await axios.get(`https://backend-hotel-9bb0a913f779.herokuapp.com/api/categories/${id}`);
+        const categoryResponse = await axios.get(`http://localhost:1337/api/categories/${id}`);
         const categoryData = categoryResponse.data.data;
 
         if (!categoryData) {
@@ -25,7 +25,7 @@ const Category = () => {
         }
 
         // Pobieramy wszystkie blogi i filtrujemy te, które należą do określonej kategorii
-        const blogsResponse = await axios.get('https://backend-hotel-9bb0a913f779.herokuapp.com/api/blogs?populate=*');
+        const blogsResponse = await axios.get('http://localhost:1337/api/blogs?populate=*');
         const filteredBlogs = blogsResponse.data.data.filter(
           (blog) => blog.attributes.category.data.id === id
         );

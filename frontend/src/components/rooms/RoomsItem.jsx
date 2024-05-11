@@ -10,7 +10,7 @@ const RoomsItem = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('https://backend-hotel-9bb0a913f779.herokuapp.com/api/pokoje?populate=*');
+          const response = await axios.get('http://localhost:1337/api/pokoje?populate=*');
           setPosts(response.data.data);
         } catch (error) {
           console.error('Error fetching data: ', error);
